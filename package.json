@@ -1,0 +1,21 @@
+{
+  "name": "igp",
+  "description": "iGame develop platform",
+  "version": "0.0.1-beta.1",
+  "contributors": [
+    {
+      "name": "ielgnaw",
+      "email": "wuji0223@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "body-parser": "1.10.x",
+    "edp-core": "~1.0.28",
+    "ejs": "^2.3.1",
+    "express": "4.x",
+    "js-yaml": "3.1.x",
+    "socket.io": "1.2.x"
+  },
+  "main": "start.js",
+  "repository": "git://github.com/ielgnaw/igp"
+}
