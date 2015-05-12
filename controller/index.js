@@ -1,4 +1,6 @@
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var path = require('path');
 
 exports.init = function (app) {
     // for parsing application/json
@@ -18,6 +20,8 @@ exports.init = function (app) {
     // exports.routeCwd(app);
     // exports.routeLS(app);
     // exports.routeCat(app);
+
+    exports.routeTest(app);
 };
 
 exports.routeNav = function (app) {
@@ -40,6 +44,18 @@ exports.routeNav = function (app) {
     var content = 'var NAV = ' + JSON.stringify(navData) + ';';
 
     app.get('/nav.js', function (request, response) {
+        response.setHeader('Content-Type', 'text/javascript; charset=UTF-8');
+        response.end(content);
+    });
+};
+
+exports.routeTest = function (app) {
+
+    var content = fs.readFileSync(
+        path.resolve(__dirname, './test.js'),
+        'utf8'
+    );
+    app.get('/test.js', function (request, response) {
         response.setHeader('Content-Type', 'text/javascript; charset=UTF-8');
         response.end(content);
     });
