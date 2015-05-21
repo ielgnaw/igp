@@ -3,7 +3,7 @@ var TEST = function () {
 };
 
 TEST.prototype.show = function () {
-    console.warn('show');
+    console.warn('中文');
 };
 
 
