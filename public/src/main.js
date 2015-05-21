@@ -114,7 +114,21 @@ define(function (require) {
         start: function () {
             console.warn('main.js start');
             console.warn(NAV);
+            var $ = require('jquery');
 
+            $('#ajax').on('click', function () {
+                $.ajax({
+                    method: 'post',
+                    url: '/testAjax?aaa=1',
+                    data: {
+                        dir: 'test'
+                    },
+                    success: function (data) {
+                        console.warn(data);
+                    },
+                    dataType: 'json'
+                });
+            })
             // require('./launch').init();
             // require('./partial/cwd').init(DEFAULT_CWD);
 
