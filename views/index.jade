@@ -1,0 +1,35 @@
+extends ./layout
+block link
+    link(href='styles/header.css', rel='stylesheet')
+    link(href='styles/index.css', rel='stylesheet')
+block content
+    .title
+        h1 用涂玩&nbsp;任性玩
+        h3 涂玩——专属你的游戏造梦师
+        a.start-btn(href='/gameedit', target='_blank') 开始制作
+    .discription
+        .wave
+        ul.adva
+            li.img-replace
+                .icon
+                .content 图片自由替换
+                .sub-content 多种上传方式支持用户自由打造个性化小游戏
+            li.easy-publish
+                .icon
+                .content 发布轻松简便
+                .sub-content 多种上传方式支持用户自由打造个性化小游戏
+            li.tech-suport
+                .icon
+                .content 技术强力支撑
+                .sub-content 多种上传方式支持用户自由打造个性化小游戏
+    .hot-game 
+        a.game-title(href='/games',target='_blank') +&nbsp;热门游戏
+        ul.game-list
+            each game in gameLists
+                li(data-id='#{game.id}')
+                    .game-name=game.name
+        a.more(href='/games',target='_blank') more...
+    .start-rightnow
+        h1 还在等待什么？
+        h4 去亲手打造自己的小游戏吧
+        a.start-btn(href='/gameedit',target='_blank') 开始制作
