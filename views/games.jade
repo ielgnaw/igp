@@ -1,0 +1,22 @@
+extends ./layout
+block link
+    link(href='styles/header.css', rel='stylesheet')
+    link(href='styles/games.css', rel='stylesheet')
+block content
+    .content
+        .new-games
+            h1 最新游戏
+            ul.game-list
+                each game in newgameLists
+                    li(data-id='#{game.id}')
+                        .game-name=game.name
+                        a.start-game(href='/tryPlay?game=#{game.id}') 开始游戏
+            a.more(href='javascript:void(0)') more...
+        .hot-games
+            h1 热门游戏
+            ul.game-list
+                each game in hotgameLists
+                    li(data-id='#{game.id}')
+                        .game-name=game.name
+                        a.start-game(href='/tryPlay?game=#{game.id}') 开始游戏
+            a.more(href='javascript:void(0)') more...
